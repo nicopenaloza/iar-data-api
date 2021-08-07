@@ -1,0 +1,15 @@
+{
+    "puerto":9292,
+    "equipos": [
+        {
+            "nombre":"Pc de pruebas 1",
+            "ip": "192.168.0.12",
+            "puerto": 3000
+        },
+        {
+            "nombre":"Pc de pruebas 2",
+            "ip": "192.168.0.12",
+            "puerto": 3000
+        }
+    ]
+}
