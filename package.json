@@ -5,11 +5,13 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "echo \"Iniciando entorno de desarrollo\" && nodemon app.js"
+    "dev": "echo \"Iniciando entorno de desarrollo\" && nodemon app.js",
+    "start": "echo \"Iniciando aplicacion de servidor\" && node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "node-fetch": "^2.6.1"
