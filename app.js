@@ -9,8 +9,8 @@ const dbController = require('./modulos/dbController');
 
 app.use(cors());
 
-
 const traerDatosPeriodicos = async () => {
+    console.log('Cada 5 minutos voy a estar pidiendo datos a los equipos guardados')
     setTimeout(async () => {
         
         let respuesta = [];
@@ -36,16 +36,9 @@ app.listen(config.puerto, () => { // Especifico que el servidor API va a iniciar
 });
 
 app.get('/iar/api/getone/:id', (req, res) => {
-    res.setHeader('Access-Control-Allow-Methods', 'GET');
-    res.setHeader('Access-Control-Allow-Origin', '*');
-
     dbController.db.traerLogsDeUnEquipo(req.params.id, res);
 });
 
 app.get('/iar/api/getall', async (req, res) => {
-    
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', 'GET');
-
     dbController.db.traerLogs(res);
 });
