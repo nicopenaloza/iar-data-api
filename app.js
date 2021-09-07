@@ -20,7 +20,7 @@ const traerDatosPeriodicos = async () => {
             .then(r => r.text())
             .then(body => JSON.parse(body))
             .then(data => respuesta.push({id: e.id, nombre: e.nombre, data}))
-            .catch(err => console.error(err));
+            .catch(err => console.log('No pudimos encontrar el equipo', e.nombre, 'ip:', e.ip));
         }
 
         dbController.db.guardarNuevaEntrada(respuesta);
@@ -35,10 +35,10 @@ app.listen(config.puerto, () => { // Especifico que el servidor API va a iniciar
     traerDatosPeriodicos();
 });
 
-app.get('/iar/api/getone/:id', (req, res) => {
+app.get('/iar/api/getone/:id', (req, res, next) => {
     dbController.db.traerLogsDeUnEquipo(req.params.id, res);
 });
 
-app.get('/iar/api/getall', async (req, res) => {
+app.get('/iar/api/getall', async (req, res, next) => {
     dbController.db.traerLogs(res);
 });
